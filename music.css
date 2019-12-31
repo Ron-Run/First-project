@@ -1,0 +1,279 @@
+* {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+#demo {
+    width: 1000px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+header {
+    width: 100%;
+    background-color: rgb(19, 161, 223);
+    height: 60px;
+    padding: 0px 20px;
+    line-height: 60px;
+    box-shadow: 0 0 2px 0px #d47f3a;
+}
+
+header h2 {
+    color: aliceblue;
+    font-size: 30px;
+    float: left;
+}
+
+header .search {
+    width: 300px;
+    height: 35px;
+    float: right;
+    position: relative;
+}
+
+header .search input {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(125, 203, 238);
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    padding-left: 20px;
+}
+
+header .search i {
+    position: absolute;
+    top: 0;
+    right: 20px;
+    color: #777
+}
+
+main {
+    width: 100%;
+    background-image: linear-gradient(to right, rgb(241, 212, 174), rgb(181, 197, 204));
+    display: flex;
+    height: 430px;
+    overflow: hidden;
+    box-shadow: 0 0 2px 0px #d47f3a;
+}
+
+main .left {
+    flex: 1;
+    padding: 10px;
+    overflow: auto;
+}
+
+main .left ul {
+    width: 100%;
+    height: 100%;
+}
+
+main .left li {
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 45px;
+}
+
+main .left ul li:nth-child(odd) {
+    background-color: rgb(237, 215, 196);
+}
+
+main .left li .test {
+    display: inline-block;
+    width: 75%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #333;
+}
+
+main .left li .iconbofang {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #f40;
+    font-size: 25px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+main .left li .iconmv {
+    background-color: #fff;
+    color: #f40;
+    position: absolute;
+    cursor: pointer;
+    top: 13px;
+    right: 10px;
+    height: 16px;
+    line-height: 16px;
+}
+
+main .middle {
+    flex: 2;
+}
+
+main .middle span {
+    width: 3px;
+    height: 100%;
+    background-image: linear-gradient(to bottom, rgba(228, 103, 103, 0), rgba(119, 118, 118, 0.9));
+}
+
+main .middle span:nth-of-type(1) {
+    float: left;
+}
+
+main .middle span:nth-of-type(2) {
+    float: right;
+}
+
+main .middle .pic {
+    width: 250px;
+    height: 250px;
+    background-color: lightblue;
+    margin: 50px auto;
+    border-radius: 50%;
+    border: 10px solid #e39534;
+    box-shadow: 0 0 10px #dd38b2;
+    overflow: hidden;
+}
+
+.playing {
+    animation: move 8s linear infinite;
+}
+
+.pause {
+    animation-play-state: paused
+}
+
+main .middle .pic img {
+    width: 100%;
+    height: 100%;
+}
+
+main .right {
+    flex: 1;
+    padding: 10px 10px 0 10px;
+    overflow: auto;
+}
+
+main .right h3 {
+    font-size: 18px;
+}
+
+main .right .people {
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+main .right .people .headPic {
+    margin: 10px;
+    float: left;
+    width: 40px;
+    height: 40px;
+    background-color: #fff;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+main .right .people .headPic img {
+    width: 100%;
+    height: 100%;
+}
+
+main .right .people .msg {
+    float: right;
+    width: 160px;
+    margin-top: 15px;
+}
+
+main .right .people .username {
+    font-size: 15px;
+}
+
+main .right .people .info {
+    color: #777;
+    font-size: 14px;
+}
+
+footer {
+    width: 100%;
+    height: 50px;
+    background-color: lightblue;
+    box-shadow: 0 0 2px 0px #d47f3a;
+    line-height: 50px;
+    display: flex;
+}
+
+
+/* 
+footer i {
+    flex: 1;
+    text-align: center;
+}
+
+footer .bar {
+    flex: 10;
+    width: 100%;
+    height: 3px;
+    background-color: #333;
+    align-self: center;
+}
+
+footer span {
+    flex: 2
+}
+ */
+
+footer audio {
+    width: 100%;
+    outline: none;
+}
+
+@keyframes move {
+    from {
+        transform: rotate(0deg)
+    }
+    to {
+        transform: rotate(360deg)
+    }
+}
+
+.mask {
+    position: absolute !important;
+    top: 0;
+    left: 0;
+    /* transform: translate(-50%, -50%); */
+    width: 100%;
+    height: 100%;
+    background-color: rgba(131, 54, 18, 0.5);
+    text-align: center;
+    position: relative;
+}
+
+.mask video {
+    width: 800px;
+    height: 500px;
+    margin-top: 20px;
+    outline: none
+}
+
+.icondelete {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #f40;
+    font-size: 25px;
+    background-color: #fff;
+    cursor: pointer;
+}

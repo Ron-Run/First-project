@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_1373639_d5gh9qmi45h.css">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_1505333_k88hewvd25b.css">
+    <link rel="stylesheet" href="./music.css">
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div id="demo">
+        <header>
+            <h2>悦听</h2>
+            <div class="search">
+                <input type="text" @keydown.enter='getMusic' v-model='query'>
+                <i class="iconfont iconsuosou" @click="clear"></i>
+            </div>
+        </header>
+        <main>
+            <section class="left">
+                <ul>
+                    <li v-for="item in musicList">
+                        <i class="iconfont iconbofang" @click="playMusic(item.id)"></i>
+                        <a href="javascript:;" class="test" :title='item.name' @click="playMusic(item.id)">{{ item.name }}</a>
+                        <span class="iconfont iconmv" @click="playMV(item.mvid)" v-if="item.mvid!=0"></span>
+                    </li>
+                </ul>
+            </section>
+            <section class="middle">
+                <span></span><span></span>
+                <div class="pic" :class="[{playing:isPlay},{pause:isPause}]">
+                    <img :src="coverUrl" alt="">
+                </div>
+            </section>
+            <section class="right">
+                <h3>热门留言</h3>
+                <div class="people" v-for="item in peopleSay">
+                    <span class="headPic"><img :src="item.user.avatarUrl" alt=""></span>
+                    <div class="msg">
+                        <h5 class="username">{{ item.user.nickname }}</h5>
+                        <p class="info">{{ item.content }}</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <audio :src="musicUrl" controls autoplay @play="play" @pause="pause"></audio>
+        </footer>
+        <div :class="{mask:isMask}">
+            <video :src="mvUrl" controls autoplay v-if="mvShow"></video>
+            <i class="iconfont icondelete" @click="disappear" v-if="mvShow"></i>
+        </div>
+    </div>
+
+    <script src="./music.js"></script>
+</body>
+
+</html>
